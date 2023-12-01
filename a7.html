@@ -2,14 +2,9 @@
     <head>
         <title>DOM</title>
         <style>
-            #table-container{
-                margin: 20px;
-            }
-
             table{
                 border-collapse: collapse;
                 width: 70%;
-                margin: 20px auto;
                 background-color: #d9eaf7;
                 overflow: hidden;
             }
@@ -32,9 +27,10 @@
         
         <button id="b1" onclick="generateTable()">Generate Table</button><br><br>
         
-        <button id="b2" onclick="addColumn()">Add Column</button>
-        
-        <button id="b3" onclick="addRow()">Add Row</button>	
+        <div id="button-container">
+            <button id="b2" onclick="addColumn()">Add Column</button>
+            <button id="b3" onclick="addRow()">Add Row</button>	
+        </div>
 
         <div id="table-container"></div>
 		
@@ -64,6 +60,9 @@
 
                 document.getElementById("b1").style.display = 'none';
                 document.getElementById("input-wrapper").style.display = 'none';
+
+                document.body.appendChild(document.getElementById('button-container'));
+
             }
 
             function addColumn(){
