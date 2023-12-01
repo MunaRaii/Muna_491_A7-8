@@ -77,7 +77,17 @@
             }
 
             function addRow(){
-                
+                let table = document.querySelector('table');
+                let noOfCols = table.rows[0].cells.length;
+                let newTableRow = document.createElement('tr');
+
+                for(let j = 0; j < noOfCols; j++){
+                    let newTableCol = document.createElement('td');
+                    newTableCol.textContent = '(' + table.rows.length + ',' + j + ')';
+                    newTableRow.appendChild(newTableCol);
+                }
+                table.appendChild(newTableRow);
+
             }
         
         </script>
