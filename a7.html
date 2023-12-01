@@ -66,11 +66,18 @@
             }
 
             function addColumn(){
-                
+                let table = document.querySelector('table');
+                let noOfCols = table.rows[0].cells.length;
+
+                for(let i = 0; i < table.rows.length; i++){
+                    let newTableCol = document.createElement("td");
+                    newTableCol.textContent = "(" + i + "," + noOfCols + ")";
+                    table.rows[i].appendChild(newTableCol);
+                }
             }
 
             function addRow(){
-            
+                
             }
         
         </script>
