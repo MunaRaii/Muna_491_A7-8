@@ -2,6 +2,7 @@
     <head>
         <title>DOM</title>
         <style>
+            /* Style for table */
             table{
                 border-collapse: collapse;
                 width: 70%;
@@ -9,6 +10,7 @@
                 overflow: hidden;
             }
 
+            /* Style for table data */
             td{
                 border: 1px solid #fff;
                 padding: 15px;
@@ -37,13 +39,17 @@
         <script language="javascript">
             
             function generateTable(){
-                
+                // Getting the number of rows and columns from user form input
                 let noOfRows = parseInt(document.getElementById("t1").value);
                 let noOfCols = parseInt(document.getElementById("t2").value);
 
+                // Getting the table container
                 let tableContainer = document.getElementById("table-container");
+                
+                // Clearing the content in the table container
                 tableContainer.innerHTML = '';
                 
+                // Creating new table
                 let table = document.createElement('table');
                 tableContainer.appendChild(table);
 
@@ -58,17 +64,23 @@
                     }
                 }
 
+                // removing unnwanted elements
                 document.getElementById("b1").style.display = 'none';
                 document.getElementById("input-wrapper").style.display = 'none';
 
+                // Moving Add Column and Add Row buttons below the table
                 document.body.appendChild(document.getElementById('button-container'));
 
             }
 
             function addColumn(){
+                // Getting the existing table
                 let table = document.querySelector('table');
+
+                // Getting the number of columns in the table
                 let noOfCols = table.rows[0].cells.length;
 
+                // Add new column to existing row
                 for(let i = 0; i < table.rows.length; i++){
                     let newTableCol = document.createElement("td");
                     newTableCol.textContent = "(" + i + "," + noOfCols + ")";
@@ -77,15 +89,23 @@
             }
 
             function addRow(){
+                // Getting the existing table
                 let table = document.querySelector('table');
+
+                // Getting the number of cols in the table
                 let noOfCols = table.rows[0].cells.length;
+
+                // Creating new table row element
                 let newTableRow = document.createElement('tr');
 
+                // Create and add new cell in the new row
                 for(let j = 0; j < noOfCols; j++){
                     let newTableCol = document.createElement('td');
                     newTableCol.textContent = '(' + table.rows.length + ',' + j + ')';
                     newTableRow.appendChild(newTableCol);
                 }
+
+                // Appending the new row to the table
                 table.appendChild(newTableRow);
 
             }
